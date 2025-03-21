@@ -1,7 +1,5 @@
 # CASIA_ProgrammingAsssignment5
 
-Here's a README file you can include once you finish the project:
-
 ---
 
 # Cybersecurity Attack Classification Using Random Forest
