@@ -33,11 +33,7 @@ The dataset used is `cyber_attacks.csv`, which contains the following features:
 
 2. **Data Preprocessing**
     - Handled missing values by:  
-        - Imputing with median/mean for numerical features.  
-        - Using mode or 'Unknown' for categorical values.  
-    - Encoded the `protocol_type` using **One-Hot Encoding**.  
-    - Scaled numerical features using **StandardScaler**.  
-    - Addressed class imbalance with **SMOTE (Synthetic Minority Over-sampling Technique)**.  
+        - Imputing with median based on attack_type
 
 ---
 
@@ -48,8 +44,6 @@ The dataset used is `cyber_attacks.csv`, which contains the following features:
     - `max_depth`: Maximum tree depth.  
     - `min_samples_split`: Minimum samples to split a node.  
     - `min_samples_leaf`: Minimum samples for a leaf node.  
-- Used **Pipeline** for efficient preprocessing and model fitting.  
-
 ---
 
 ## 📊 **Evaluation**
@@ -74,9 +68,8 @@ The dataset used is `cyber_attacks.csv`, which contains the following features:
 
 ## 📂 **Files and Structure**
 - `cyber_attacks.csv`: Dataset used for training.  
-- `assignment_5_rf.ipynb`: Jupyter Notebook with the full code and analysis.  
+- `CASIA_ProgrammingAssignment5.ipynb`: Jupyter Notebook with the full code and analysis.  
 - `README.md`: This documentation file.  
-- `requirements.txt`: Python libraries used.  
 
 ---
 
@@ -85,7 +78,6 @@ The dataset used is `cyber_attacks.csv`, which contains the following features:
 - Pandas, NumPy (data manipulation)  
 - Matplotlib, Seaborn (visualization)  
 - Scikit-Learn (model development and evaluation)  
-- SMOTE (handling class imbalance)  
 
 ---
 
@@ -94,13 +86,9 @@ The dataset used is `cyber_attacks.csv`, which contains the following features:
    ```bash
    git clone <repository_link>
    ```
-2. Install dependencies:
+2. Run the Jupyter Notebook:
    ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the Jupyter Notebook:
-   ```bash
-   jupyter notebook assignment_5_rf.ipynb
+   jupyter notebook CASIA_ProgrammingAssignment5.ipynb
    ```
 
 ---
