@@ -1,4 +1,3 @@
-# CASIA_ProgrammingAsssignment5
 
 ---
 
