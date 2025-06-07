@@ -1,98 +1,76 @@
+---
+
+# Random Forest Classifier for Cyberattack Detection
 
 ---
 
-# Cybersecurity Attack Classification Using Random Forest
+## Project Overview
 
-## 📚 **Project Overview**
-This project is part of Programming Assignment 5 for the Technological University of the Philippines – Manila, College of Engineering, Electronics Engineering Department. The objective is to develop a machine learning model to classify various types of cyberattacks using a Random Forest classifier. 
-
-The model is trained on a simulated network traffic dataset and aims to detect attacks such as **DDoS**, **Botnet**, **PortScan**, and **Phishing**. 
+This notebook builds a Random Forest classifier to identify network intrusions based on labeled traffic features. The analysis covers preprocessing, handling missing values, model training, performance evaluation, and feature importance analysis.
 
 ---
 
-## 🚀 **Dataset**
-The dataset used is `cyber_attacks.csv`, which contains the following features:
+## Objectives
 
-- `protocol_type`: Protocol (0: TCP, 1: UDP, 2: ICMP)  
-- `duration`: Connection duration (seconds)  
-- `src_bytes`: Bytes sent from the source  
-- `dst_bytes`: Bytes sent to the destination  
-- `num_packets`: Number of packets transmitted  
-- `num_connections`: Number of connections  
-- `attack_type`: Attack label (Normal, Botnet, DDoS, PortScan, Phishing)  
+* Clean and prepare a cybersecurity dataset for model training
+* Encode categorical variables and impute missing values
+* Train and evaluate a Random Forest model
+* Analyze which features are most influential for classification
 
 ---
 
-## ⚙️ **Preprocessing Steps**
-1. **Loading and Exploring the Data**
-    - Loaded the dataset and conducted Exploratory Data Analysis (EDA).  
-    - Visualized distributions of key features.  
+## Methodology
 
-2. **Data Preprocessing**
-    - Handled missing values by:  
-        - Imputing with median based on attack_type
+### 1. Preprocessing
 
----
+* **Missing Value Handling**: Applied mean imputation by grouping entries according to attack type to retain class-specific characteristics.
+* **Encoding Categorical Features**:
 
-## 🌲 **Model Development**
-- Trained a **Random Forest Classifier** using the preprocessed dataset.  
-- Tuned the following hyperparameters:  
-    - `n_estimators`: Number of trees.  
-    - `max_depth`: Maximum tree depth.  
-    - `min_samples_split`: Minimum samples to split a node.  
-    - `min_samples_leaf`: Minimum samples for a leaf node.  
----
+  * Applied One-Hot Encoding to the `protocol_type` feature to transform it into a machine-readable format.
+* **Final Inspection**: Verified data consistency before model fitting.
 
-## 📊 **Evaluation**
-- Evaluated the model using:  
-    - **Precision**, **Recall**, and **F1-score** to handle class imbalance effectively.  
-    - Confusion matrix and classification report for detailed performance analysis.  
-- Identified the hardest-to-classify attack types and discussed potential reasons.  
+### 2. Model Training
 
----
+* Used `RandomForestClassifier` from scikit-learn.
+* Training performed on a 70:30 train-test split.
+* Visualized sample decision trees to better understand model structure.
 
-## 🔥 **Feature Importance**
-- Analyzed feature importance using the Random Forest model.  
-- Visualized the most significant features for attack classification.  
+### 3. Hyperparameter Tuning
+
+* Explored:
+
+  * `n_estimators`: Number of decision trees in the forest
+  * Additional model hyperparameters can be incorporated in future iterations
+
+### 4. Evaluation Metrics
+
+* Accuracy on training and test datasets
+* Confusion matrix and classification report
+* Feature importance ranking for model interpretability
 
 ---
 
-## 🌐 **Deployment and Real-World Application**
-- Suggested steps for deploying the model in a real-time network monitoring system.  
-- Discussed strategies to handle unseen attack types using **incremental learning** or **continuous retraining**.  
+## Key Insights
+
+* Attack-type-based imputation enhanced representation of minority classes.
+* Random Forest effectively handled high-dimensional data and class separability.
+* Most influential features were identified, offering interpretability to model decisions.
+* The approach can be used as a foundation for real-world intrusion detection systems.
 
 ---
 
-## 📂 **Files and Structure**
-- `cyber_attacks.csv`: Dataset used for training.  
-- `CASIA_ProgrammingAssignment5.ipynb`: Jupyter Notebook with the full code and analysis.  
-- `README.md`: This documentation file.  
+## Tools and Libraries
+
+* **Python**
+* **Pandas**, **NumPy** for data manipulation
+* **Scikit-learn** for model training and evaluation
+* **Matplotlib**, **Graphviz** for visualization
 
 ---
 
-## 🛠️ **Technologies Used**
-- Python  
-- Pandas, NumPy (data manipulation)  
-- Matplotlib, Seaborn (visualization)  
-- Scikit-Learn (model development and evaluation)  
+## Conclusion
+
+This project illustrates the use of ensemble learning in cybersecurity applications. The combination of proper preprocessing and model tuning enabled the construction of a reliable classifier for identifying network threats based on structured feature data.
 
 ---
 
-## 🚦 **How to Run**
-1. Clone the repository:
-   ```bash
-   git clone <repository_link>
-   ```
-2. Run the Jupyter Notebook:
-   ```bash
-   jupyter notebook CASIA_ProgrammingAssignment5.ipynb
-   ```
-
----
-
-## 🤝 **Contributors**
-- CASIA, Axle Jade D; FERNANDEZ, Joseph Bryan Lloyd
-- Technological University of the Philippines – Manila  
-- Electronics Engineering Department  
-
----
